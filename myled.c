@@ -1,6 +1,5 @@
-// SPDX-License-Identifier: GPL-3.0
 // Copyright 2020 Kiyoharu Hirano
-
+// Released under the GPL v3.0
 
 #include <linux/module.h>
 #include <linux/fs.h>
