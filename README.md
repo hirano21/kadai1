@@ -12,9 +12,9 @@ ubuntu 18.04 　　
 https://youtu.be/W8AW6gRROx4
 
 # 実行方法
-$make  　
+$make  
 $sudo insmod myled.ko  
-$sudo chmod 666 /dev/myled0 　　  
+$sudo chmod 666 /dev/myled0  
 
 # 動作
 $echo 0 > /dev/myled0 　
