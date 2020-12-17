@@ -1,3 +1,7 @@
+// SPDX-License-Identifier: GPL-3.0
+// Copyright 2020 Kiyoharu Hirano
+
+
 #include <linux/module.h>
 #include <linux/fs.h>
 #include <linux/cdev.h>
@@ -25,20 +29,23 @@ static ssize_t led_write(struct file* filp,const char* buf, size_t count, loff_t
 	int i=0;
 //	printk(KERN_INFO "receive %c\n",c);
 	if(c=='0')
-		gpio_base[10]= 1 << 25;
-		else if(c=='1'){
-			while(c=='1'){
-				gpio_base[7] = 1 << 25;
-				msleep(100+50*i);
-				gpio_base[10]= 1 << 25;		
-				msleep(100+50*i);
-				i++;
-		if(i>10)
-		break;
+	gpio_base[10]= 1 << 25;
+	
+	else if(c=='1'){
+	
+		while(c=='1'){
+			gpio_base[7] = 1 << 25;
+			msleep(100+50*i);
+			gpio_base[10]= 1 << 25;		
+			msleep(100+50*i);
+			i++;
+			if(i>10)
+			break;
 		}
-				gpio_base[7] = 1 << 25;
+	
+		gpio_base[7] = 1 << 25;
 			
-		}
+	}
 	return 1;
 }
 
