@@ -31,7 +31,6 @@ static ssize_t led_write(struct file* filp,const char* buf, size_t count, loff_t
 	gpio_base[10]= 1 << 25;
 	
 	else if(c=='1'){
-	
 		while(c=='1'){
 			gpio_base[7] = 1 << 25;
 			msleep(100+50*i);
@@ -41,9 +40,7 @@ static ssize_t led_write(struct file* filp,const char* buf, size_t count, loff_t
 			if(i>10)
 			break;
 		}
-	
-		gpio_base[7] = 1 << 25;
-			
+		gpio_base[7] = 1 << 25;			
 	}
 	return 1;
 }
@@ -69,7 +66,6 @@ static struct file_operations led_fops = {
 static int __init init_mod(void)
 {
 	int retval;
-
 
 	retval=alloc_chrdev_region(&dev, 0, 1, "myled");
 	if(retval < 0){
@@ -107,8 +103,6 @@ static int __init init_mod(void)
 
 static void __exit cleanup_mod(void)
 {
-
-	
 	cdev_del(&cdv);
 	device_destroy(cls, dev);
 	class_destroy(cls);
